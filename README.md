@@ -54,3 +54,7 @@ Com uma base técnica sólida e um foco em inclusão social, o projeto visa pree
 
 - Validação contínua do modelo em cenários reais;
 - Expansão do escopo funcional para atender a um público mais amplo e diverso.
+
+**Links utilitários:**
+
+- Link para acesso ao código: https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing
