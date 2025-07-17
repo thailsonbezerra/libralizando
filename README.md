@@ -38,7 +38,7 @@ O sistema utiliza um dataset com imagens anotadas e coordenadas obtidas de sequ�
 
 ## Origem dos Dados
 
-Os dados foram obtidos a partir do dataset ["LIBRAS" disponível no Kaggle](https://www.kaggle.com/datasets/williansoliveira/libras) e tratados no Roboflow para anotação e organização.
+Os dados foram de fontes próprias e tratados no Roboflow para anotação e organização.
 
 ## Impacto no Ensino Básico
 
@@ -57,4 +57,4 @@ Com uma base técnica sólida e um foco em inclusão social, o projeto visa pree
 
 **Links utilitários:**
 
-- Link para acesso ao código: https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing
+- Link para acesso ao código: [libralizando_collab](https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing)
