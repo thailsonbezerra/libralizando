@@ -57,4 +57,4 @@ Com uma base técnica sólida e um foco em inclusão social, o projeto visa pree
 
 **Links utilitários:**
 
-- Link para acesso ao código: [libralizando_collab](https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing){target="_blank"}
+- Link para acesso ao código: [libralizando_collab](https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing)
