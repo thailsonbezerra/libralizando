@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reconhecimento de Libras</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Libralizando</title>
+  <meta name="description" content="Lovable Generated Project" />
+  <meta name="author" content="Lovable" />
+
+  <meta property="og:title" content="Libralizando" />
+  <meta property="og:description" content="Lovable Generated Project" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@lovable_dev" />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 </head>
 
 <body>
-    <div class="container">
-        <h1>👋 Reconhecimento de Libras</h1>
-
-        <div class="camera-box">
-            <video id="video" autoplay playsinline></video>
-            <canvas id="canvas" style="display:none;"></canvas>
-        </div>
-
-        <button id="startBtn">Iniciar Câmera</button>
-        <button id="captureBtn" disabled>Capturar Gesto</button>
-
-        <div id="result">
-            <h2>Gesto Reconhecido: <span id="gesture">---</span></h2>
-            <p>Confiança: <span id="confidence">0%</span></p>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
