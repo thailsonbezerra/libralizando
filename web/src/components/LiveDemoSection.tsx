@@ -13,7 +13,15 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { Camera, Square, Play, AlertCircle, Upload, Image } from "lucide-react";
+import {
+  Camera,
+  Square,
+  Play,
+  AlertCircle,
+  Upload,
+  Image,
+  Send,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const LiveDemoSection = () => {
@@ -25,7 +33,7 @@ const LiveDemoSection = () => {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
 
-  const [isProcessing, setIsProcessing] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -91,45 +99,58 @@ const LiveDemoSection = () => {
       reader.onload = (e) => {
         const imageUrl = e.target?.result as string;
         setUploadedImage(imageUrl);
+        setGesture("---");
+        setConfidence(0);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const recognizeUploadedImage = async (file: File) => {
+  const handleSubmitPhoto = async () => {
+    if (!fileInputRef.current?.files?.[0]) return;
+
     try {
+      setIsUploading(true);
       setError("");
-      setIsProcessing(true);
 
-      const formData = new FormData();
-      formData.append("file", file, "gesture.jpg");
-
-      const response = await fetch(API_URL, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Erro ao se comunicar com o servidor.");
-      }
-
-      const text = await response.text();
-      if (!text) throw new Error("Resposta vazia do servidor.");
-      const data = JSON.parse(text);
-
-      if (data.gesture) {
-        setGesture(data.gesture);
-        setConfidence(data.confidence * 100);
-        toast({
-          title: "Imagem processada!",
-          description: `Detectamos o sinal da letra ${data.gesture}`,
-        });
-      }
+      await recognizeUploadedImage(fileInputRef.current.files[0]);
     } catch (err) {
-      console.error("Erro no reconhecimento:", err);
+      console.error("Erro no envio:", err);
       setError("Erro ao processar imagem. Tente novamente.");
+      toast({
+        title: "Erro no processamento",
+        description: "Não foi possível processar a imagem.",
+        variant: "destructive",
+      });
     } finally {
-      setIsProcessing(false);
+      setIsUploading(false);
+    }
+  };
+
+  const recognizeUploadedImage = async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file, "gesture.jpg");
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao se comunicar com o servidor.");
+    }
+
+    const text = await response.text();
+    if (!text) throw new Error("Resposta vazia do servidor.");
+    const data = JSON.parse(text);
+
+    if (data.gesture) {
+      setGesture(data.gesture);
+      setConfidence(data.confidence * 100);
+      toast({
+        title: "Imagem processada!",
+        description: `Detectamos o sinal da letra ${data.gesture}`,
+      });
     }
   };
 
@@ -274,15 +295,58 @@ const LiveDemoSection = () => {
                       className="hidden"
                     />
 
-                    <Button
-                      onClick={() => fileInputRef.current?.click()}
-                      className="w-full"
-                      variant="hero"
-                      size="lg"
-                    >
-                      <Upload className="h-4 w-4 mr-2" />
-                      Selecionar foto
-                    </Button>
+                    <div className="space-y-2">
+                      <Button
+                        onClick={() => fileInputRef.current?.click()}
+                        className="w-full"
+                        variant="hero"
+                        size="lg"
+                      >
+                        <Upload className="h-4 w-4 mr-2" />
+                        Selecionar foto
+                      </Button>
+
+                      {uploadedImage && (
+                        <Button
+                          onClick={handleSubmitPhoto}
+                          className="w-full"
+                          variant="default"
+                          size="lg"
+                          disabled={isUploading}
+                        >
+                          {isUploading ? (
+                            <>
+                              <svg
+                                className="animate-spin -ml-1 mr-2 h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <circle
+                                  className="opacity-25"
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                ></circle>
+                                <path
+                                  className="opacity-75"
+                                  fill="currentColor"
+                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                              </svg>
+                              Processando...
+                            </>
+                          ) : (
+                            <>
+                              <Send className="h-4 w-4 mr-2" />
+                              Enviar foto
+                            </>
+                          )}
+                        </Button>
+                      )}
+                    </div>
                   </TabsContent>
 
                   <TabsContent value="camera" className="space-y-4">
