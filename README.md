@@ -55,6 +55,68 @@ Com uma base técnica sólida e um foco em inclusão social, o projeto visa pree
 - Validação contínua do modelo em cenários reais;
 - Expansão do escopo funcional para atender a um público mais amplo e diverso.
 
-**Links utilitários:**
+---
 
-- Link para acesso ao código: [libralizando_collab](https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing)
+🛠️ Requisitos para Rodar Localmente
+
+Certifique-se de ter os seguintes requisitos instalados:
+
+| Requisito        | Versão Requerida | Descrição                                         |
+|------------------|------------------|---------------------------------------------------|
+| Docker           | Latest           | Para rodar o backend em containers                |
+| Docker Compose   | Latest           | Para orquestrar os serviços da aplicação          |
+| Node.js          | Latest            | Para rodar o frontend (`web`)                     |
+| npm              | Latest  | Gerenciador de pacotes do Node.js                 |
+
+---
+
+## Variáveis de Ambiente
+
+### Backend (`libras-recognizer/.env`)
+
+| Chave         | Valor                                                                 | Descrição                                      |
+|---------------|-----------------------------------------------------------------------|------------------------------------------------|
+| `MODEL_URL`   | `https://drive.google.com/uc?export=download&id=1vWtnYzhMVbJl6_jhXKaBslr3uEsOYdur` | URL para download do modelo treinado          |
+| `MODEL_PATH`  | `app/libras_model.pt`                                                 | Caminho local para salvar o modelo             |
+
+### Frontend (`web/.env`)
+
+| Chave              | Valor                             | Descrição                                              |
+|--------------------|-----------------------------------|--------------------------------------------------------|
+| `VITE_API_URL`     | `http://localhost:8000/recognize` | URL da API usada para o reconhecimento dos sinais     |
+| `VITE_INTERVAL_MS` | `1500`                            | Intervalo entre capturas da câmera (em milissegundos) |
+
+---
+
+## Rodar Localmente
+
+```bash
+# 1. Clone o repositório
+git clone git@github.com:thailsonbezerra/libralizando.git
+cd libralizando/
+
+# 2. Acesse o backend e configure
+cd libras-recognizer
+cp .env.example .env
+
+# 3. Execute o backend com Docker
+docker compose up --build
+
+# 4. Acesse o frontend
+cd ../web
+cp .env.example .env
+
+# 5. Instale as dependências e inicie o frontend
+npm install
+npm run dev
+```
+
+**Observação**
+
+Ao realizar a copia do .env.example para .env os valores de exemplos já estão mapeados para rodar localmente. O ``MODEL_URL`` é a url que realiza o download do modelo treinar por nós. Caso queira utilizar um outro modelo é só substituir o valor dessa variavél. Exemplo de um outro dataset https://www.kaggle.com/datasets/williansoliveira/libras que você pode gerar um modelo apartir dele.
+
+## Links Utilitários
+
+- Link da aplicação: [libralizando](https://libralizando.vercel.app/)
+- Link da API: [libralizando_api](https://libralizando.onrender.com/docs)
+- Link para acesso ao código do modelo utilizado: [libralizando_collab](https://drive.google.com/file/d/1LdwQVc_HxrsLB_wd29-W4m5PLnDo-THj/view?usp=sharing)
