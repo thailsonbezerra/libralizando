@@ -52,13 +52,13 @@ Com uma base técnica sólida e um foco em inclusão social, o projeto visa pree
 
 ## Resultados
 
-O modelo apresenta alto desempenho no reconhecimento dos sinais cujas letras são: A, B, C, D, L P, Q, Y, como mostrado na matriz de confusão abaixo, pois existem uma quantidade de maior de dados de treinamento dessas classes. Isso mostra que, o modelo é satisfatório, mas que ainda há muito espaço para melhorar dataset para um melhor treinamento do algoritmo. 
+O modelo apresenta alto desempenho no reconhecimento dos sinais cujas letras são: A, B, C, D, L, P, Q, Y, como mostrado na matriz de confusão abaixo, pois existe uma quantidade maior de dados de treinamento dessas classes. Isso mostra que o modelo é satisfatório, mas que ainda há muito espaço para melhorar o dataset para um melhor treinamento do algoritmo. 
 
-[imagem_matriz_confusao]
+![Matriz de Confusão](./assets/imagem_matriz_confusao.jpeg)
 
 Abaixo, algumas imagens dos testes do modelo:
 
-[imagem_testes]
+![Imagens de Teste](./assets/imagem_testes.jpeg)
 
 **Próximas etapas:**
 
