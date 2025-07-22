@@ -50,6 +50,16 @@ Além de auxiliar na comunicação com estudantes surdos, o projeto também pode
 
 Com uma base técnica sólida e um foco em inclusão social, o projeto visa preencher uma lacuna significativa, proporcionando um impacto positivo na educação e no acesso à comunicação.
 
+## Resultados
+
+O modelo apresenta alto desempenho no reconhecimento dos sinais cujas letras são: A, B, C, D, L P, Q, Y, como mostrado na matriz de confusão abaixo, pois existem uma quantidade de maior de dados de treinamento dessas classes. Isso mostra que, o modelo é satisfatório, mas que ainda há muito espaço para melhorar dataset para um melhor treinamento do algoritmo. 
+
+[imagem_matriz_confusao]
+
+Abaixo, algumas imagens dos testes do modelo:
+
+[imagem_testes]
+
 **Próximas etapas:**
 
 - Validação contínua do modelo em cenários reais;
