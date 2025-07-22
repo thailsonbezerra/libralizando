@@ -40,16 +40,6 @@ O sistema utiliza um dataset com imagens anotadas e coordenadas obtidas de sequ�
 
 Os dados foram de fontes próprias e tratados no Roboflow para anotação e organização.
 
-## Impacto no Ensino Básico
-
-O reconhecimento em tempo real do alfabeto em LIBRAS pode ser uma ferramenta importante para apoiar a inclusão de alunos surdos no ambiente escolar. Em especial no ensino básico, após o processo de alfabetização, o contato com LIBRAS pode ser essencial para promover um ambiente mais inclusivo e respeitoso com a diversidade linguística.
-
-Além de auxiliar na comunicação com estudantes surdos, o projeto também pode ser utilizado como apoio pedagógico para o ensino de LIBRAS, incentivando o aprendizado da língua de sinais desde cedo por alunos ouvintes. Essa iniciativa contribui para a construção de um ambiente mais empático, inclusivo e preparado para lidar com a diversidade dentro da sala de aula.
-
-## Perspectivas Finais
-
-Com uma base técnica sólida e um foco em inclusão social, o projeto visa preencher uma lacuna significativa, proporcionando um impacto positivo na educação e no acesso à comunicação.
-
 ## Resultados
 
 O modelo apresenta alto desempenho no reconhecimento dos sinais cujas letras são: A, B, C, D, L, P, Q, Y, como mostrado na matriz de confusão abaixo, pois existe uma quantidade maior de dados de treinamento dessas classes. Isso mostra que o modelo é satisfatório, mas que ainda há muito espaço para melhorar o dataset para um melhor treinamento do algoritmo. 
@@ -69,7 +59,15 @@ Abaixo, algumas imagens dos testes do modelo:
 - Validação contínua do modelo em cenários reais;
 - Expansão do escopo funcional para atender a um público mais amplo e diverso.
 
----
+## Impacto no Ensino Básico
+
+O reconhecimento em tempo real do alfabeto em LIBRAS pode ser uma ferramenta importante para apoiar a inclusão de alunos surdos no ambiente escolar. Em especial no ensino básico, após o processo de alfabetização, o contato com LIBRAS pode ser essencial para promover um ambiente mais inclusivo e respeitoso com a diversidade linguística.
+
+Além de auxiliar na comunicação com estudantes surdos, o projeto também pode ser utilizado como apoio pedagógico para o ensino de LIBRAS, incentivando o aprendizado da língua de sinais desde cedo por alunos ouvintes. Essa iniciativa contribui para a construção de um ambiente mais empático, inclusivo e preparado para lidar com a diversidade dentro da sala de aula.
+
+## Perspectivas Finais
+
+Com uma base técnica sólida e um foco em inclusão social, o projeto visa preencher uma lacuna significativa, proporcionando um impacto positivo na educação e no acesso à comunicação.
 
 🛠️ Requisitos para Rodar Localmente
 
