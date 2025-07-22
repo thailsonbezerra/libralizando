@@ -189,14 +189,12 @@ const LiveDemoSection = () => {
       }
     } catch (err) {
       console.error("Erro no reconhecimento:", err);
-      // Simular resposta para demonstração (remover em produção)
-      const mockGestures = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
-      const randomGesture =
-        mockGestures[Math.floor(Math.random() * mockGestures.length)];
-      const randomConfidence = 70 + Math.random() * 25;
-
-      setGesture(randomGesture);
-      setConfidence(randomConfidence);
+      setError("Erro ao reconhecer o gesto. Tente novamente.");
+      toast({
+        title: "Erro no reconhecimento",
+        description: "Não foi possível reconhecer o gesto. Tente novamente.",
+        variant: "destructive",
+      });
     }
   };
 
